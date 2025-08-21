@@ -94,12 +94,17 @@ export default function SectionLearn() {
                         <p className="lg:text-[16px] text-[14px] mb-3">
                             Você vai aprender como montar a estrutura do seu <span className="text-nowrap">e-commerce</span>, organizar processos e agir como um verdadeiro gerente, pronto para crescer com consistência.
                         </p>
-                        <LinkButton text="QUERO APRENDER A VENDER ONLINE" full />
+
+                        {/* DIV que aplica hover */}
+                        <div className="group inline-block transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#C9A050]/50 rounded-xl">
+                            <LinkButton text="QUERO APRENDER A VENDER ONLINE" full />
+                        </div>
                     </div>
                     <div>
                         <Image src={'/desktop-5.avif'} alt="desktop" width={1000} height={660} loading="lazy" />
                     </div>
                 </div>
+
 
             </div>
         </section>

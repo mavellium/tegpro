@@ -6,8 +6,12 @@ import 'swiper/css'
 
 import Image from "next/image"
 import LinkButton from "../Link"
+import { useState } from "react"
+import "animate.css"
 
-export default function SectionBanner({city}: {city: string}) {
+export default function SectionBanner({ city }: { city: string }) {
+    const [isHovered, setIsHovered] = useState(false)
+
     const bgImages = [
         '/background-5.webp',
         '/background-1.webp',
@@ -50,12 +54,22 @@ export default function SectionBanner({city}: {city: string}) {
                         Descubra o passo a passo completo — do zero à sua primeira venda no e-commerce.<br />
                         Produto, fornecedor, loja, tráfego e atendimento: tudo explicado de forma simples, prática e sem enrolação.
                     </p>
-                    <LinkButton text="Quero garantir minha vaga agora" />
+
+                    {/* Só o LinkButton anima */}
+                    <div
+                        className={`${isHovered ? "animate__animated animate__pulse" : ""}`}
+                        onMouseEnter={() => setIsHovered(true)}
+                        onAnimationEnd={() => setIsHovered(false)} // reseta para repetir a animação
+                    >
+                        <LinkButton text="Quero garantir minha vaga agora" />
+                    </div>
                 </div>
 
                 <div className="bg-black/50 py-2 px-5 rounded-xl mx-3 sm:mx-5 z-[1]">
                     <p className="font-bold sm:text-[16px] text-[14px]">
-                        {city != 'Garça' ? 'Curso Presencial | Início: 16 de Setembro | Hotel Momax - Marília/SP' : ' Curso Presencial | Início: 11 de Setembro | Rua Sargento Wilson Abel de Oliveira, 42 sala 21 - Ferraropolis - Garça/SP'}
+                        {city != 'Garça'
+                            ? 'Curso Presencial | Início: 16 de Setembro | Hotel Momax - Marília/SP'
+                            : ' Curso Presencial | Início: 11 de Setembro | Rua Sargento Wilson Abel de Oliveira, 42 sala 21 - Ferraropolis - Garça/SP'}
                     </p>
                 </div>
             </div>

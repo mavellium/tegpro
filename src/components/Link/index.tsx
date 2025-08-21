@@ -1,4 +1,5 @@
 "use client";
+import 'animate.css';
 
 export default function LinkButton({
   text,

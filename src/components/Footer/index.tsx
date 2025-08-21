@@ -14,8 +14,13 @@ export default function Footer() {
             Com o TegPro, você tem método, apoio e resultado real. <strong>Essa é sua chance de vender de verdade.</strong>
           </p>
         </div>
-        <LinkButton text="Quero transformar meu negócio" shadow full />
+
+        {/* Envolve o LinkButton na div com hover */}
+        <div className="group inline-block transition-transform duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#C9A050]/50 rounded-xl">
+          <LinkButton text="Quero transformar meu negócio" shadow full />
+        </div>
       </div>
+
 
       {/* Bloco inferior */}
       <div className="bg-[#000000] text-[#DEDEDE] py-[50px] border-t border-[#F0F0F0] text-base">

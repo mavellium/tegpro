@@ -5,6 +5,8 @@ import "swiper/css";
 import Image from "next/image";
 import { Autoplay } from "swiper/modules";
 import LinkButton from "../Link";
+import { useState } from "react";
+import "animate.css";
 
 const alunos = [
   "/imagem-aluno1.avif",
@@ -28,6 +30,8 @@ const alunos = [
 ];
 
 export default function SectionImages() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <section className="py-10 bg-[#060606]">
       <h1 className="font-semibold sm:text-[32px] text-[24px] text-gradient text-center mb-5">
@@ -84,7 +88,15 @@ export default function SectionImages() {
             <strong> Você está a uma escolha de distância.</strong>
           </p>
         </div>
-        <div>
+
+        {/* Só o LinkButton vai animar */}
+        <div
+          className={`${
+            isHovered ? "animate__animated animate__flipInX" : ""
+          }`}
+          onMouseEnter={() => setIsHovered(true)}
+          onAnimationEnd={() => setIsHovered(false)}
+        >
           <LinkButton text="QUERO APRENDER A VENDER ONLINE" shadow />
         </div>
       </div>
