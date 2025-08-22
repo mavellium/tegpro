@@ -46,7 +46,6 @@ export default function Assessment() {
     }
   }, [swiperInstance]);
 
-  // Função para extrair o ID do YouTube da URL do embed
   function getYouTubeID(url: string) {
     const regex = /embed\/([a-zA-Z0-9_-]{11})/;
     const match = url.match(regex);
@@ -87,52 +86,52 @@ export default function Assessment() {
               >
                 {activeSlideIndex === i ? (
                   <iframe
-                    width="370"
-                    height="500"
-                    className="rounded-2xl"
+                    className="absolute top-0 left-0 w-full h-full rounded-2xl"
                     src={video.src + "?autoplay=1"}
                     title={video.title}
+                    frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     referrerPolicy="strict-origin-when-cross-origin"
                     allowFullScreen
                   />
                 ) : (
-                  <div className="relative w-full h-full">
-                    <img
-                      src={`https://img.youtube.com/vi/${getYouTubeID(
-                        video.src
-                      )}/hqdefault.jpg`}
-                      alt={video.title}
-                      className="w-full h-full object-cover rounded-2xl"
-                      loading="lazy"
-                    />
-                    <button
-                      aria-label={`Tocar vídeo ${video.title}`}
-                      className="absolute inset-0 flex justify-center items-center bg-black/50 rounded-2xl transition-opacity hover:bg-opacity-60"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveSlideIndex(i);
+                  <>
+                    {/* Thumbnail */}
+                    <div
+                      className="absolute top-0 left-0 w-full h-full bg-center bg-cover brightness-90 saturate-125 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_32px_rgba(201,160,80,0.8)] hover:brightness-100 hover:saturate-150"
+                      style={{
+                        backgroundImage: `url('https://img.youtube.com/vi/${getYouTubeID(
+                          video.src
+                        )}/maxresdefault.jpg')`,
                       }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-16 h-16 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </button>
-                  </div>
+                    />
+
+                    {/* Botão Play customizado */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-[#C9A050]/80 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-[#C9A050]">
+                        <div
+                          className="ml-1"
+                          style={{
+                            width: 0,
+                            height: 0,
+                            borderTop: "10px solid transparent",
+                            borderBottom: "10px solid transparent",
+                            borderLeft: "18px solid white",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </>
                 )}
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
 
+        {/* Botões de navegação */}
         <button
           ref={prevRef}
-          className="absolute left-[-20px] top-[140px] z-10 bg-white w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer"
+          className="absolute left-[-20px] top-[140px] z-10 bg-white w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer shadow-lg"
         >
           <svg
             width="27"
@@ -151,7 +150,7 @@ export default function Assessment() {
         </button>
         <button
           ref={nextRef}
-          className="absolute right-[-20px] top-[140px] z-10 bg-white w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer"
+          className="absolute right-[-20px] top-[140px] z-10 bg-white w-[50px] h-[50px] rounded-full flex justify-center items-center cursor-pointer shadow-lg"
         >
           <svg
             width="27"
