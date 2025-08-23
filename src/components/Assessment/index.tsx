@@ -81,7 +81,7 @@ export default function Assessment() {
           {videos.map((video, i) => (
             <SwiperSlide key={i}>
               <div
-                className="relative flex justify-center items-center h-full w-full group cursor-pointer rounded-2xl overflow-hidden"
+                className="relative flex justify-center items-center h-full w-full group cursor-pointer rounded-2xl overflow-hidden border border-[#C9A050]/40 shadow-[0_4px_12px_rgba(201,160,80,0.25)] transition-all duration-300 hover:shadow-[0_8px_20px_rgba(201,160,80,0.4)]"
                 onClick={() => setActiveSlideIndex(i)}
               >
                 {activeSlideIndex === i ? (
@@ -98,7 +98,7 @@ export default function Assessment() {
                   <>
                     {/* Thumbnail */}
                     <div
-                      className="absolute top-0 left-0 w-full h-full bg-center bg-cover brightness-90 saturate-125 transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_12px_32px_rgba(201,160,80,0.8)] hover:brightness-100 hover:saturate-150"
+                      className="absolute top-0 left-0 w-full h-full bg-center bg-cover brightness-90 saturate-125 transition-all duration-300 hover:scale-[1.02] hover:brightness-100 hover:saturate-150"
                       style={{
                         backgroundImage: `url('https://img.youtube.com/vi/${getYouTubeID(
                           video.src
@@ -125,6 +125,7 @@ export default function Assessment() {
                 )}
               </div>
             </SwiperSlide>
+
           ))}
         </Swiper>
 
