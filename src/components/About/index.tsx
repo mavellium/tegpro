@@ -18,24 +18,28 @@ export default function About() {
 
                     <div className="flex flex-col items-start justify-start">
                         <div className="flex mb-3">
+                            {/* Botão 1 */}
                             <button
                                 onClick={() => setActiveTab(1)}
-                                className={`py-3 px-2 sm:px-4 rounded-l-lg font-bold cursor-pointer sm:text-[16px] text-[12px] ${
-                                    activeTab === 1
+                                className={`py-3 px-2 sm:px-4 rounded-l-lg font-bold cursor-pointer sm:text-[16px] text-[12px] transition-all duration-300
+                                    ${activeTab === 1
                                         ? 'bg-gradient text-black'
-                                        : 'bg-[#141414] text-[#ccc]'
-                                }`}
+                                        : 'bg-[#141414] text-[#ccc] hover:bg-[#2b2b2b] hover:text-white'
+                                    }
+                                    ${activeTab !== 1 ? 'hover:brightness-125' : ''}`}
                                 aria-label="Botão fundador da tegbe"
                             >
                                 Fundador da TegBe
                             </button>
+
+                            {/* Botão 2 */}
                             <button
                                 onClick={() => setActiveTab(2)}
-                                className={`py-3 px-2 sm:px-4 rounded-r-lg font-bold cursor-pointer sm:text-[16px] text-[14px] ${
-                                    activeTab === 2
+                                className={`py-3 px-2 sm:px-4 rounded-r-lg font-bold cursor-pointer sm:text-[16px] text-[14px] transition-all duration-300
+                                    ${activeTab === 2
                                         ? 'bg-gradient text-black'
-                                        : 'bg-[#141414] text-[#ccc]'
-                                }`}
+                                        : 'bg-[#141414] text-[#ccc] hover:bg-[#2b2b2b] hover:text-white'
+                                    }`}
                                 aria-label="Consultor oficial do mercado livre"
                             >
                                 Consultor oficial do Mercado Livre
