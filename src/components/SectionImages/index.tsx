@@ -29,7 +29,7 @@ const alunos = [
   "/imagem-aluno18.avif",
 ];
 
-export default function SectionImages() {
+export default function SectionImages({ title, description }: {title: string; description: string;}) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -79,17 +79,12 @@ export default function SectionImages() {
 
       <div className="flex items-center justify-center py-10 my-10 px-5 gap-10 text-[#F0F0F0] flex-wrap">
         <div className="max-w-[600px] sm:text-start text-center">
-          <h2 className="text-gradient sm:text-[32px] text-[24px] font-bold mb-3 text-center sm:text-start">
-            Não é sorte. É decisão.
+          <h2 className="text-gradient sm:text-[32px] text-[24px] font-bold mb-3 text-center sm:text-start" dangerouslySetInnerHTML={{ __html: title }}>
           </h2>
-          <p className="sm:text-[16px] text-[14px] text-center sm:text-start max-w-[300px]">
-            Esses alunos escolheram agir — e hoje sabem exatamente como vender
-            na internet.
-            <strong> Você está a uma escolha de distância.</strong>
+          <p className="sm:text-[16px] text-[14px] text-center sm:text-start max-w-[300px]"  dangerouslySetInnerHTML={{ __html: description }}>
           </p>
         </div>
 
-        {/* Só o LinkButton vai animar */}
         <div
           className={`${
             isHovered ? "animate__animated animate__flipInX" : ""

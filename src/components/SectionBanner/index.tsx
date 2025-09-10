@@ -9,7 +9,7 @@ import LinkButton from "../Link"
 import { useState } from "react"
 import "animate.css"
 
-export default function SectionBanner({ city }: { city: string }) {
+export default function SectionBanner({ city, title, description, cityMarilia, cityGarca }: { city: string; title: string; description: string; cityGarca: string; cityMarilia: string; }) {
     const [isHovered, setIsHovered] = useState(false)
 
     const bgImages = [
@@ -47,15 +47,11 @@ export default function SectionBanner({ city }: { city: string }) {
 
             <div className="relative z-10 flex justify-start pt-[125px] lg:pt-0 lg:justify-center items-center flex-col p-3 lg:p-5 h-full text-white text-center">
                 <div className="max-w-5xl sm:mb-[200px] lg:mb-[70px]">
-                    <h1 className="font-black sm:text-[42px] text-[28px]">
-                        Você não precisa entender de internet para começar a vender online
+                    <h1 className="font-black sm:text-[42px] text-[28px]" dangerouslySetInnerHTML={{ __html: title }}>
                     </h1>
-                    <p className="py-7 sm:text-[20px] text-[16px] font-bold">
-                        Descubra o passo a passo completo — do zero à sua primeira venda no e-commerce.<br />
-                        Produto, fornecedor, loja, tráfego e atendimento: tudo explicado de forma simples, prática e sem enrolação.
+                    <p className="py-7 sm:text-[20px] text-[16px] font-bold" dangerouslySetInnerHTML={{ __html: description }}>
                     </p>
 
-                    {/* Só o LinkButton anima */}
                     <div
                         className={`${isHovered ? "animate__animated animate__pulse" : ""}`}
                         onMouseEnter={() => setIsHovered(true)}
@@ -68,8 +64,8 @@ export default function SectionBanner({ city }: { city: string }) {
                 <div className="bg-black/50 py-2 px-5 rounded-xl mx-3 sm:mx-5 z-[1]">
                     <p className="font-bold sm:text-[16px] text-[14px]">
                         {city != 'Garça'
-                            ? 'Curso Presencial | Início: 16 de Setembro | Hotel Momax - Marília/SP'
-                            : ' Curso Presencial | Início: 11 de Setembro | Rua Sargento Wilson Abel de Oliveira, 42 sala 21 - Ferraropolis - Garça/SP'}
+                            ? <span dangerouslySetInnerHTML={{ __html: cityMarilia }}></span>
+                            : <span dangerouslySetInnerHTML={{ __html: cityGarca }}></span>}
                     </p>
                 </div>
             </div>

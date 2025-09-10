@@ -1,14 +1,13 @@
 'use client'
 import { useState } from "react";
 
-export default function SectionVideo() {
+export default function SectionVideo({ title }: { title: string }) {
   const [showVideo, setShowVideo] = useState(false);
 
   return (
     <section className="py-10 mb-10">
       <div className="flex justify-center items-center flex-col text-center sm:px-10 px-5 max-w-[1000px] m-auto">
-        <h1 className="mb-5 sm:text-[32px] text-[24px] font-semibold text-wrap lg:text-nowrap">
-          Quer saber se o TegPro é pra você? Assista ao vídeo abaixo.
+        <h1 className="mb-5 sm:text-[32px] text-[24px] font-semibold text-wrap lg:text-nowrap" dangerouslySetInnerHTML={{ __html: title }}>
         </h1>
 
         <figure
